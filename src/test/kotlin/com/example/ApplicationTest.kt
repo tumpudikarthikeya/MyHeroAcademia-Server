@@ -73,11 +73,13 @@ class ApplicationTest {
 
         val response = client.get("/MHA/heroes?page=hi")
         assertEquals( expected = HttpStatusCode.BadRequest , actual =  response.status)
+        val actual = Json.decodeFromString<ApiResponse>(response.bodyAsText())
         val expected = ApiResponse(
             success = false,
             message = "Only Numbers are Allowed",
+            lastUpdated = actual.lastUpdated
         )
-        val actual = Json.decodeFromString<ApiResponse>(response.bodyAsText())
+
         assertEquals( expected = expected , actual =  actual)
 
     }
