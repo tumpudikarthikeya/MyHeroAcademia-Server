@@ -79,7 +79,6 @@ class ApplicationTest {
             message = "Only Numbers are Allowed",
             lastUpdated = actual.lastUpdated
         )
-
         assertEquals( expected = expected , actual =  actual)
 
     }
